@@ -29,7 +29,7 @@ namespace BuscaAPI.Controllers {
                 string resultado = TempData["Endereco"].ToString();
                 Endereco endereco = JsonConvert.DeserializeObject<Endereco>(resultado);
                 _consultaDAO.Cadastrar(endereco);
-                return View(ec);
+                ec.ListaEndereco = _consultaDAO.Listar();
             }
             return View(ec);
         }
