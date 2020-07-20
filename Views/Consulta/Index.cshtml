@@ -1,4 +1,5 @@
-﻿@model Endereco
+﻿@model EnderecoCompleto
+
 
 @{
     Layout = null;
@@ -26,46 +27,8 @@
         </form>
     </div>
 
-    <div class="container" style="margin-top:30px">
-        <div class="form-group">
-            <label asp-for="Logradouro">Logradouro</label>
-            <input type="text" asp-for="Logradouro" disabled class="form-control col-4"/>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Complemento">Complemento</label>
-            <input type="text" asp-for="Complemento" disabled class="form-control col-4" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Bairro">Bairro</label>
-            <input type="text" asp-for="Bairro" disabled class="form-control col-4" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Localidade">Localidade</label>
-            <input type="text" asp-for="Localidade" disabled class="form-control col-4" />
-        </div>
-
-
-        <div class="form-group">
-            <label asp-for="UF">UF</label>
-            <input type="text" asp-for="UF" disabled class="form-control col-4" />
-        </div>
-
-     
-
-   
-    </div>
-
-
-
-
-
-
-
-
-
+    <div class="container" style="margin-top:30px"/>
+    
     <br />
 
     <div>
@@ -92,9 +55,12 @@
 
             <tbody>
 
-                @*@foreach (Endereco p in Model) {
+                @foreach (Endereco p in Model.ListaEndereco) {
 
                     <tr>
+                        <td>
+                            @p.CEP
+                        </td>
                         <td>
                             @p.Logradouro
                         </td>
@@ -109,29 +75,14 @@
                         </td>
                         <td>
                             @p.UF
-                        </td>*@
-                   
-
-
-                    @*</tr>*@
+                        </td>
+                    </tr>
                 }
 </table>
+                
 
 
-
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-
+    </div>
 
 
 </body>

@@ -23,16 +23,15 @@ namespace BuscaAPI.Controllers {
 
         public IActionResult Index() {
 
-            Endereco e = new Endereco();
-
+            EnderecoCompleto ec = new EnderecoCompleto();
+            ec.ListaEndereco = _consultaDAO.Listar();
             if (TempData["Endereco"] != null) {
-
                 string resultado = TempData["Endereco"].ToString();
                 Endereco endereco = JsonConvert.DeserializeObject<Endereco>(resultado);
                 _consultaDAO.Cadastrar(endereco);
-                return View(endereco);
+                return View(ec);
             }
-            return View();
+            return View(ec);
         }
 
 
